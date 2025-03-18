@@ -6,7 +6,6 @@ from PIL import Image
 
 
 def process_file(model_1, model_2, input_file, coordinate_differences, confidence_differences, speed_diff_1, speed_diff_2, anomalies):
-    # Generate random input data for the models (adjust shape and dtype as necessary)
     image_path = input_file  # Replace with your image file path
     image = Image.open(image_path)
     resizeimage = image.resize((640, 640))
@@ -26,12 +25,9 @@ def process_file(model_1, model_2, input_file, coordinate_differences, confidenc
 
     execution_time1 = end - start_time
     execution_time2 = end - mid
-    #print(f"Execution Time 1: {execution_time1} seconds")
-    #print(f"Execution Time 2: {execution_time2} seconds")
     speed_diff_1.append(execution_time1)
     speed_diff_2.append(execution_time2)
 
-    # Compare the outputs (you can compare the raw output, or some specific metric like the difference)
     coordinates_1 = output_1['coordinates']
     confidence_1 = output_1['confidence']
 
@@ -48,12 +44,6 @@ def process_file(model_1, model_2, input_file, coordinate_differences, confidenc
 
     if (execution_time1 > 0.05 or execution_time2 > 0.05):
         anomalies.append(input_file)
-
-
-    #print(f"Coordinate Difference: {np.max(difference_1)} abs_diff")
-    #print(f"Confidence Difference: {np.max(difference_2)} abs_diff")
-
-    print(f"Success Processing")
 
 def five_stat_analysis(data):
     # Sort the data first
