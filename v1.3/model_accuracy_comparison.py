@@ -65,14 +65,12 @@ def five_stat_analysis(data):
 
 
 def main():
-    # Load the CoreML models
-    model_1_path = 'TagYOLOModel_16.mlmodel'  # Replace with your first model file path
-    model_2_path = 'TagYOLOModel.mlmodel'  # Replace with your second model file path
+    model_1_path = 'TagYOLOModel_16.mlmodel'  
+    model_2_path = 'TagYOLOModel.mlmodel'  
 
     model_1 = ct.models.MLModel(model_1_path)
     model_2 = ct.models.MLModel(model_2_path)
 
-    # Hello
     speed_diff_1 = []
     speed_diff_2 = []
     coordinate_differences = []
